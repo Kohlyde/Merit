@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .nav-link {
+            color: #fff !important;
+        }
+        .container {
+            margin: auto;
+            max-width: 900px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+        }
+        .close {
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Merit</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="contact-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Merit: A Comprehensive Platform for Boise’s Music Community</h1>
+        <p><strong>Introduction:</strong> The objective of this project is to create a comprehensive web-based platform for the city of Boise that tracks, verifies, and reports on the activities of local DJs and producers. The platform will empower individuals to submit their information, while the system will automatically handle verification and ranking, minimizing direct interaction unless absolutely necessary. This approach follows the "less is more" philosophy, focusing on efficiency, simplicity, and user empowerment.</p>
+        
+        <h2>Platform Overview:</h2>
+        <p>The platform will consist of three main components:</p>
+        <ul>
+            <li><strong>Submission Portal:</strong> A user-friendly interface allowing DJs and producers to submit their information.</li>
+            <li><strong>Verification System:</strong> An automated system that processes and verifies the data provided by users.</li>
+            <li><strong>Reporting Dashboard:</strong> A web-based dashboard that generates monthly reports, showcasing verified data and providing insights into the local music scene.</li>
+        </ul>
+
+        <h2>Technology Stack:</h2>
+        <p>The platform will be built using a combination of robust and scalable technologies, ensuring long-term stability and easy maintenance.</p>
+        <ul>
+            <li><strong>Frontend Development:</strong> HTML/CSS, JavaScript (React or Vue.js), Bootstrap or Tailwind CSS.</li>
+            <li><strong>Backend Development:</strong> Python (Flask or Django), SQL Database (PostgreSQL or MySQL), Celery with Redis.</li>
+            <li><strong>Data Verification:</strong> Custom Python Scripts, Automated API Calls, Document Verification Module.</li>
+            <li><strong>Reporting and Analytics:</strong> Pandas and NumPy, Matplotlib or Plotly, Jinja2 or Django Templating Engine.</li>
+            <li><strong>Automation and Maintenance:</strong> GitHub Actions, Schedule Library (Python), Docker.</li>
+        </ul>
+
+        <h2>Workflow and Development Plan:</h2>
+        <p><strong>Phase 1: Planning and Design</strong></p>
+        <ul>
+            <li>Objective: Define the core functionalities and user flow for the platform.</li>
+            <li>Timeline: 2 weeks.</li>
+        </ul>
+
+        <p><strong>Phase 2: Frontend Development</strong></p>
+        <ul>
+            <li>Objective: Develop a responsive and interactive user interface.</li>
+            <li>Timeline: 4 weeks.</li>
+        </ul>
+
+        <p><strong>Phase 3: Backend Development</strong></p>
+        <ul>
+            <li>Objective: Build the core functionality of the platform, including data handling and verification.</li>
+            <li>Timeline: 6 weeks.</li>
+        </ul>
+
+        <p><strong>Phase 4: Data Verification and Automation</strong></p>
+        <ul>
+            <li>Objective: Implement and test the automated verification processes.</li>
+            <li>Timeline: 3 weeks.</li>
+        </ul>
+
+        <p><strong>Phase 5: Reporting and Analytics</strong></p>
+        <ul>
+            <li>Objective: Create a dynamic reporting system that generates monthly insights.</li>
+            <li>Timeline: 4 weeks.</li>
+        </ul>
+
+        <p><strong>Phase 6: Testing and Deployment</strong></p>
+        <ul>
+            <li>Objective: Ensure the platform is stable, secure, and ready for public use.</li>
+            <li>Timeline: 2 weeks.</li>
+        </ul>
+
+        <h2>Security and Privacy Considerations:</h2>
+        <p>Data Encryption, User Consent, Access Controls.</p>
+
+        <h2>Conclusion:</h2>
+        <p>This platform will serve as a powerful tool for the Boise music community, providing a transparent and fair way to recognize and promote local talent. By leveraging automation and self-verification, we will minimize unnecessary interactions while ensuring the credibility and accuracy of the information presented.</p>
+    </div>
+
+    <!-- Lightbox for Contact Form -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <span class="close" id="close">&times;</span>
+            <h3>Contact Us</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Lightbox functionality
+        document.getElementById('contact-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('lightbox').style.display = 'flex';
+        });
+
+        document.getElementById('close').addEventListener('click', function() {
+            document.getElementById('lightbox').style.display = 'none';
+        });
+    </script>
+
+</body>
+</html>

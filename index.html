@@ -44,12 +44,19 @@
             padding: 20px;
             border-radius: 8px;
             width: 400px;
+            position: relative;
         }
         .close {
             float: right;
             font-size: 20px;
             font-weight: bold;
             cursor: pointer;
+        }
+        .thank-you-message {
+            display: none;
+            color: green;
+            text-align: center;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -147,21 +154,22 @@
         <div class="lightbox-content">
             <span class="close" id="close">&times;</span>
             <h3>Contact Us</h3>
-            <form>
+            <form id="contact-form" action="send_email.php" method="POST">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" required>
+                    <input type="text" class="form-control" id="name" name="name" required>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" required>
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="mb-3">
                     <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                    <textarea class="form-control" id="message" name="message" rows="3" required></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Send</button>
             </form>
+            <div class="thank-you-message" id="thank-you-message">Thank you for your message!</div>
         </div>
     </div>
 
@@ -176,6 +184,25 @@
 
         document.getElementById('close').addEventListener('click', function() {
             document.getElementById('lightbox').style.display = 'none';
+        });
+
+        // Show thank you message after form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            fetch('send_email.php', {
+                method: 'POST',
+                body: new FormData(this)
+            }).then(response => response.text())
+              .then(data => {
+                  if (data.trim() === 'success') {
+                      document.getElementById('thank-you-message').style.display = 'block';
+                      setTimeout(function() {
+                          document.getElementById('thank-you-message').style.display = 'none';
+                          document.getElementById('lightbox').style.display = 'none';
+                          document.getElementById('contact-form').reset();
+                      }, 2000);
+                  }
+              });
         });
     </script>
 
